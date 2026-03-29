@@ -642,8 +642,10 @@ const projects = [
     stack: ["React","NestJS","MongoDB","WebSocket","AWS"],
     desc: "A medical SaaS platform with patient management, data analytics, and real-time features. Built for clinical research and healthcare workflows.",
     color: "#4ECDC4",
+    color1:"#ffc107",
     accent: "#020e0d",
     live: "https://www.phenowise.com/",
+    app:"https://app.phenowise.com/",
     type: "saas"
   },
   {
@@ -745,8 +747,16 @@ function buildCard(p, delay){
     </div>
     <p class="proj-desc">${p.desc}</p>
     <div class="proj-stack">${p.stack.map(t=>`<span class="proj-pill">${t}</span>`).join('')}</div>
-    <div class="proj-actions">
-      <a href="${p.live}" target="_blank" rel="noopener" class="btn-live" style="background:${p.color};color:${p.accent}">Live Site ↗</a>
+   <div class="proj-actions">
+      <a href="${p.live}" target="_blank" rel="noopener" class="btn-live" style="background:${p.color};color:${p.accent}">
+        Live Site ↗
+      </a>
+
+      ${p.app ? `
+        <a href="${p.app}" target="_blank" rel="noopener" class="btn-live" style="background:${p.color1};color:${p.accent}">
+          Live App ↗
+        </a>
+      ` : ''}
     </div>
   `;
   c.addEventListener('mouseenter',()=>{c.style.background='rgba(134,188,66,.03)';c.style.borderColor=p.color;c.style.boxShadow=`0 20px 50px ${p.color}1a`});
